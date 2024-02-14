@@ -5,12 +5,14 @@
       if(node.tagName != "BUTTON") {
         return;
       }
-      if(node.getAttribute("name") == "Later") {
+      if (node.getAttribute("name") == "Later") {
         var text = node.parentNode.parentNode.innerText;
-        if(text.match(/read receipts requested/i)) {
+        const regex = /read receipts requested\/i|confirmaciones de lectura solicitadas\/i/;
+        if (text.match(regex)) {
           node.click();
         }
       }
+
     }
   };
 
